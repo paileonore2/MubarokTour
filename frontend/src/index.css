@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply font-sans text-gray-900 bg-white dark:bg-gray-900 dark:text-white; }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { @apply bg-gray-100 dark:bg-gray-800; }
+  ::-webkit-scrollbar-thumb { @apply bg-primary rounded-full; }
+}
+
+@layer components {
+  .btn-primary { @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition transform hover:scale-105; }
+  .card { @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition; }
+}
