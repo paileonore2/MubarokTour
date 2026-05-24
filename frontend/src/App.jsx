@@ -213,10 +213,26 @@ const Register = () => {
   const { register } = useAuth();
   const [form, setForm] = useState({ name: '', email: '', password: '', phone: '' });
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
     const success = await register(form);
     if (success) navigate('/dashboard');
   };
 
-  return (<div className="min-h-screen flex items-center justify-center pt-24 px-4"><div className="card max-w-md w-full p-8"><h2 className="text-2xl font-bold text-center mb-6">Daftar Akun</h2><form onSubmit={handleSubmit}><input type="text" placeholder="Nama Lengkap" className="w-full p-3 border rounded-lg mb-4 dark:bg-gray-700" value={form.name} onChange={(e) => setForm({...form, name: e.target.value})} required /><input type="email" placeholder="Email" className="w-full p-3 border rounded-lg mb-4 dark:bg-gray-700" value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} required /><input type="tel" placeholder="No. Telepon" className="w-full p-3 border rounded-lg mb-4 dark:bg-gray-700" value={form.phone} onChange={(e) => setForm({...form, phone: e.target.value})} required /><input type="password" placeholder="Password" className="w-full p-3 border rounded-lg mb-6 dark:bg-gray-700" value={form.password} onChange={(e) => setForm({...form, password: e.target.value})} required /><button type="submit" className="btn-primary w-full py-3">Daftar</button></form><p className="text-center mt-4">Sudah punya akun? <Link to="/login" className="text-primary">Login</Link></p></div
+  return (
+    <div className="min-h-screen flex items-center justify-center pt-24 px-4">
+      <div className="card max-w-md w-full p-8">
+        <h2 className="text-2xl font-bold text-center mb-6">Daftar Akun</h2>
+        <form onSubmit={handleSubmit}>
+          <input type="text" placeholder="Nama Lengkap" className="w-full p-3 border rounded-lg mb-4 dark:bg-gray-700" value={form.name} onChange={(e) => setForm({...form, name: e.target.value})} required />
+          <input type="email" placeholder="Email" className="w-full p-3 border rounded-lg mb-4 dark:bg-gray-700" value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} required />
+          <input type="tel" placeholder="No. Telepon" className="w-full p-3 border rounded-lg mb-4 dark:bg-gray-700" value={form.phone} onChange={(e) => setForm({...form, phone: e.target.value})} required />
+          <input type="password" placeholder="Password" className="w-full p-3 border rounded-lg mb-6 dark:bg-gray-700" value={form.password} onChange={(e) => setForm({...form, password: e.target.value})} required />
+          <button type="submit" className="btn-primary w-full py-3">Daftar</button>
+        </form>
+        <p className="text-center mt-4">
+          Sudah punya akun? <Link to="/login" className="text-primary">Login</Link>
+        </p>
+      </div>
+    </div>
+  );
